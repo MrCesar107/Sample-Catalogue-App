@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DashboardController < ApplicationController
+class DashboardController < BaseController
   def index
     render :index
   end
