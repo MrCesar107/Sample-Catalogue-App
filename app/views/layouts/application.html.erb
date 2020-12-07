@@ -10,8 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if current_user %>
+      <%= render partial: 'layouts/menu_bar'%>
+    <% end %>
+    <%= render partial: 'layouts/alerts'%>
     <%= yield %>
   </body>
 </html>

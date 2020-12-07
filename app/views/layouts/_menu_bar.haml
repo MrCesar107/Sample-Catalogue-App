@@ -1,0 +1,15 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    %a.navbar-brand(href="#") Catalogue App
+    %button.navbar-toggler{ type: "button", data_toggle: "collapse", data_target: "#navbar", aria_controls: "navbar", aria_expanded: "false", aria_label: "Toggle navigation" }
+      %span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbar
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+          %a.nav-link(href="#") Catalogues
+        %li.nav-item
+          %a.nav-link(href="#") Sections
+        %li.nav-item
+          %a.nav-link(href="#") Products
+      = link_to destroy_user_session_path(current_user), class: "btn btn-primary" do
+        Log out
