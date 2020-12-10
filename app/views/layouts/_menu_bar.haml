@@ -6,10 +6,11 @@
     .collapse.navbar-collapse#navbar
       %ul.navbar-nav.mr-auto
         %li.nav-item
-          %a.nav-link(href="#") Catalogues
+          = link_to catalogues_path, class: "nav-link" do
+            Catalogues
         %li.nav-item
           %a.nav-link(href="#") Sections
         %li.nav-item
           %a.nav-link(href="#") Products
-      = link_to destroy_user_session_path(current_user), class: "btn btn-primary" do
+      = link_to destroy_user_session_path, method: :delete, class: "btn btn-primary" do
         Log out
