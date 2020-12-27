@@ -1,0 +1,24 @@
+.modal.fade#newCatalogueModal{tabindex: '-1', 'aria-labelledby' => "newCatalogueModalLabel", 'aria-hidden' => 'true'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title#newCatalogueModalLabel
+          New Catalogue
+        %button.btn-close{'data-dismiss' => 'modal', 'aria-label' => 'close'}
+          %span{'aria-hidden' => true}
+            &times;
+      = form_for catalogue do |f|
+        .modal-body
+          - if catalogue.errors.any?
+            .alert.alert-danger
+              %ul
+                - catalogue.errors.full_messages.each do |msg|
+                  %li= msg
+          .row
+            .col-12
+              .form-group
+                = f.label :name
+                = f.text_field :name, class: "form-control"
+        .modal-body
+          %button.btn.btn-primary(type="submit")
+            Create catalogue

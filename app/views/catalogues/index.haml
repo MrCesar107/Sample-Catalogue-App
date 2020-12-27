@@ -3,5 +3,9 @@
     .col-8
       %h1 Catalogues
     .col-4.text-right
-      = link_to new_catalogue_path, class: "btn btn-success m" do
+      %button.btn.btn-success{type: 'button', 'data-toggle' => 'modal', 'data-target' => '#newCatalogueModal'}
         New catalogue
+  .row
+    = render catalogues
+= render partial: 'catalogues/new_catalogue_form_modal', locals: { catalogue: Catalogue.new }
+= render partial: 'catalogues/edit_catalogue_form_modal', locals: { catalogue: Catalogue.new }

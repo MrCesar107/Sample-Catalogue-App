@@ -1,0 +1,19 @@
+.modal.fade#editCatalogueModal{tabindex: '-1', 'aria-labelledby' => "editCatalogueModalLabel", 'aria-hidden' => 'true'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title#editCatalogueModalLabel
+          Edit Catalogue
+        %button.btn-close{'data-dismiss' => 'modal', 'aria-label' => 'close'}
+          %span{'aria-hidden' => true}
+            &times;
+      = form_with model: catalogue, method: :put, html: { class: 'js--catalogue-form' } do |f|
+        .modal-body
+          .row
+            .col-12
+              .form-group
+                = f.label :name
+                = f.text_field :name, class: "form-control js--name-field"
+        .modal-body
+          %button.js--submit-button.btn.btn-primary(type="submit")
+            Update catalogue

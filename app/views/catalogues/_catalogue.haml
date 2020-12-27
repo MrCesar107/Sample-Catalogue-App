@@ -1,0 +1,11 @@
+.col-12
+  .card
+    .card-body
+      .row
+        .col-8
+          %h5.card-title= catalogue.name
+        .col-4.text-right
+          %button.js--edit-button.btn.btn-warning.btn-sm{type: 'button', 'data-toggle' => 'modal', 'data-target' => '#editCatalogueModal', 'data-id' => catalogue.id}
+            %i.far.fa-edit
+          = link_to catalogue_path(id: catalogue.id), method: :delete, class: "btn btn-danger sm-btn" do
+            %i.far.fa-trash-alt
