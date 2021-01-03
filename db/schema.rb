@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_12_09_211930) do
 
   create_table "catalogues", force: :cascade do |t|
     t.string "name", null: false
+    t.boolean "active", default: true, null: false
   end
 
   create_table "users", force: :cascade do |t|

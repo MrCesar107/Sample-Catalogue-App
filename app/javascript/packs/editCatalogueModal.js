@@ -36,7 +36,9 @@ class EditCatalogueModal {
   }
 }
 
-document.addEventListener('turbolinks:load', () => {
+const editCatalogueModal = () => {
   let modal = document.getElementById('editCatalogueModal');
   new EditCatalogueModal(modal);
-});
+};
+
+export default editCatalogueModal;

@@ -9,13 +9,18 @@ require("@rails/activestorage").start()
 require("channels")
 require("bootstrap")
 import "@fortawesome/fontawesome-free/js/all";
-require("./editCatalogueModal")
+import Swal from "sweetalert2";
+
+import editCatalogueModal from "./editCatalogueModal";
+import deleteCatalogueSweetAlert from './deleteCatalogueSweetAlert';
 
 document.addEventListener("turbolinks:load", function() {
   $(function() {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
   });
+  editCatalogueModal();
+  deleteCatalogueSweetAlert();
 });
 
 

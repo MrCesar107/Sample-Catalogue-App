@@ -21,7 +21,7 @@ class CataloguesController < BaseController # :nodoc:
     if catalogue.update catalogue_params
       redirect_to catalogues_path, notice: t('.success')
     else
-      render :index, notice: t('.failure')
+      render :index, alert: t('.failure')
     end
   end
 
@@ -29,10 +29,20 @@ class CataloguesController < BaseController # :nodoc:
     render :index, locals: { catalogues: catalogues }
   end
 
+  def destroy
+    catalogue = Catalogue.find params[:id]
+
+    if catalogue.update(active: false)
+      redirect_to catalogues_path, notice: t('.success')
+    else
+      render :index, alert: t('.failure')
+    end
+  end
+
   private
 
   def catalogues
-    Catalogue.all
+    Catalogue.active
   end
 
   def catalogue
