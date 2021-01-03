@@ -4,8 +4,12 @@
       .row
         .col-8
           %h5.card-title= catalogue.name
-        .col-4.text-right
-          %button.js--edit-button.btn.btn-warning.btn-sm{type: 'button', 'data-toggle' => 'modal', 'data-target' => '#editCatalogueModal', 'data-id' => catalogue.id}
-            %i.far.fa-edit
-          %button.js--delete-catalogue-button.btn.btn-danger.btn-sm{type: 'button', 'data-id' => catalogue.id}
-            %i.far.fa-trash-alt
+        - if catalogue.active?
+          .col-4.text-right
+            %button.js--edit-button.btn.btn-warning.btn-sm{type: 'button', 'data-toggle' => 'modal', 'data-target' => '#editCatalogueModal', 'data-id' => catalogue.id}
+              %i.far.fa-edit
+            %button.js--delete-catalogue-button.btn.btn-danger.btn-sm{type: 'button', 'data-id' => catalogue.id }
+              %i.far.fa-trash-alt
+        - else
+          .col-4.text-right
+            = link_to t(".restore_catalogue"), catalogue_restore_catalogue_path(catalogue_id: catalogue.id), method: :put, class: 'btn btn-primary btn-sm'
