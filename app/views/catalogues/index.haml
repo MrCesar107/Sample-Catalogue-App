@@ -6,6 +6,13 @@
       %button.btn.btn-success{type: 'button', 'data-toggle' => 'modal', 'data-target' => '#newCatalogueModal'}
         New catalogue
   .row
+    .col-12
+      %ul.nav.nav-tabs
+        - tabs.each do |tab|
+          %li.nav-item
+            = link_to catalogues_path(status: tab[:status]), class: "nav-link #{tab[:active] && 'active'}" do
+              = t(".#{tab[:status]}")
+  .row
     = render catalogues
 = render partial: 'catalogues/new_catalogue_form_modal', locals: { catalogue: Catalogue.new }
 = render partial: 'catalogues/edit_catalogue_form_modal', locals: { catalogue: Catalogue.new }

@@ -26,7 +26,7 @@ class CataloguesController < BaseController # :nodoc:
   end
 
   def index
-    render :index, locals: { catalogues: catalogues }
+    render :index, locals: { catalogues: catalogues, tabs: tabs }
   end
 
   def destroy
@@ -41,8 +41,12 @@ class CataloguesController < BaseController # :nodoc:
 
   private
 
+  def status
+    params[:status] || "active"
+  end
+
   def catalogues
-    Catalogue.active
+    ::Catalogues.new(status).catalogues
   end
 
   def catalogue
@@ -51,5 +55,11 @@ class CataloguesController < BaseController # :nodoc:
 
   def catalogue_params
     params.require(:catalogue).permit(:name)
+  end
+
+  def tabs
+    %w[active inactive].map do |tab|
+      { active: status.eql?(tab), status: tab }
+    end
   end
 end
