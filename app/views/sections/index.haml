@@ -1,6 +1,15 @@
 .container
   .row
-    .col-12
-      %h1= t(".all_sections")
+    - if catalogue.nil?
+      .col-12
+        %h1= t(".all_sections")
+    - else
+      .col-8
+        %h1= t(".catalogue_sections")
+      .col-4.text-right
+        %button.btn.btn-success{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#newSectionModal' }
+          = t(".new_section")
   .row
-    = render sections
+    = render partial: 'sections/section', collection: sections
+
+= render partial: 'sections/new_section_form_modal', locals: { catalogue: catalogue, section: Section.new }

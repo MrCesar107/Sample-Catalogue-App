@@ -1,24 +1,25 @@
-.modal.fade#newCatalogueModal{tabindex: '-1', 'aria-labelledby' => "newCatalogueModalLabel", 'aria-hidden' => 'true'}
+.modal.fade#newSectionModal{ tabindex: '-1', 'aria-labelledby' => 'newSectionModalLabel', 'aria-hidden' => 'true' }
   .modal-dialog
     .modal-content
       .modal-header
         %h5.modal-title#newCatalogueModalLabel
-          New Catalogue
+          = t(".new_section")
         %button.btn-close{'data-dismiss' => 'modal', 'aria-label' => 'close'}
           %span{'aria-hidden' => true}
             &times;
-      = form_for catalogue do |f|
+      = form_for [:catalogue, section] do |f|
         .modal-body
-          - if catalogue.errors.any?
+          - if section.errors.any?
             .alert.alert-danger
               %ul
-                - catalogue.errors.full_messages.each do |msg|
+                - section.errors.full_messages.each do |msg|
                   %li= msg
           .row
+            = f.hidden_field :catalogue_id, value: catalogue.id
             .col-12
               .form-group
                 = f.label :name
                 = f.text_field :name, class: "form-control"
         .modal-footer
           %button.btn.btn-primary(type="submit")
-            Create catalogue
+            = t(".create_section")

@@ -3,7 +3,8 @@
     .card-body
       .row
         .col-8
-          %h5.card-title= catalogue.name
+          %h5.card-title
+            = link_to catalogue.name, catalogue_sections_path(catalogue_id: catalogue.id)
         - if catalogue.active?
           .col-4.text-right
             %button.js--edit-button.btn.btn-warning.btn-sm{type: 'button', 'data-toggle' => 'modal', 'data-target' => '#editCatalogueModal', 'data-id' => catalogue.id}

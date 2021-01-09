@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_01_04_002326) do
 
   create_table "sections", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "catalogues_id"
-    t.index ["catalogues_id"], name: "index_sections_on_catalogues_id"
+    t.bigint "catalogue_id"
+    t.index ["catalogue_id"], name: "index_sections_on_catalogue_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,5 +39,5 @@ ActiveRecord::Schema.define(version: 2021_01_04_002326) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "sections", "catalogues", column: "catalogues_id"
+  add_foreign_key "sections", "catalogues"
 end
