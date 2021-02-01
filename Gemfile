@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Project gems
+gem 'active_model_serializers', '~> 0.10.12'
 gem 'bootstrap'
 gem 'devise'
 gem 'haml-rails'

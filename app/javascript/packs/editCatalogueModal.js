@@ -1,7 +1,7 @@
 class EditCatalogueModal {
   constructor(modal) {
     this.modal = modal;
-    this.form = document.querySelector('.js--catalogue-form')
+    this.form = document.querySelector('.js--catalogue-form');
     let editButtons = [...document.getElementsByClassName('js--edit-button')];
     let submitButton = document.querySelector('.js--submit-button');
     editButtons.forEach((editButton) => {

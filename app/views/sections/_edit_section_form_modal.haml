@@ -1,13 +1,13 @@
-.modal.fade#editCatalogueModal{tabindex: '-1', 'aria-labelledby' => "editCatalogueModalLabel", 'aria-hidden' => 'true'}
+.modal.fade#editSectionModal{tabindex: '-1', 'aria-labelledby' => 'editSectionModalLabel', 'aria-hidden' => 'true'}
   .modal-dialog
     .modal-content
       .modal-header
-        %h5.modal-title#editCatalogueModalLabel
-          Edit Catalogue
+        %h5.modal-title#editSectionModalLabel
+          = t(".edit_section")
         %button.btn-close{'data-dismiss' => 'modal', 'aria-label' => 'close'}
           %span{'aria-hidden' => true}
             &times;
-      = form_with model: catalogue, method: :put, html: { class: 'js--catalogue-form' } do |f|
+      = form_with model: section, method: :put, html: {class: 'js--section-form'} do |f|
         .modal-body
           .row
             .col-12
@@ -16,4 +16,5 @@
                 = f.text_field :name, class: "form-control js--name-field"
         .modal-footer
           %button.js--submit-button.btn.btn-primary(type="submit")
-            Update catalogue
+            = t(".update")
+

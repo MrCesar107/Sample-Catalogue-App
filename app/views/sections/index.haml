@@ -1,15 +1,34 @@
 .container
   .row
-    - if catalogue.nil?
-      .col-12
-        %h1= t(".all_sections")
-    - else
+    - if defined?(catalogue) && !catalogue.nil?
       .col-8
         %h1= t(".catalogue_sections")
       .col-4.text-right
         %button.btn.btn-success{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#newSectionModal' }
           = t(".new_section")
+    - else
+      .col-12
+        %h1= t(".all_sections")
   .row
-    = render partial: 'sections/section', collection: sections
+    .col-12
+      - if defined?(catalogue) && !catalogue.nil?
+        %ul.nav.nav-tabs
+          - tabs.each do |tab|
+            %li.nav-item
+              = link_to catalogue_sections_path(status: tab[:status]), class: "nav-link #{tab[:active] && 'active'}" do
+                = t(".#{tab[:status]}")
+      - else
+        %ul.nav.nav-tabs
+          - tabs.each do |tab|
+            %li.nav-item
+              = link_to sections_path(status: tab[:status]), class: "nav-link #{tab[:active] && 'active'}" do
+                = t(".#{tab[:status]}")
+  .row
+    - if defined?(catalogue) && !catalogue.nil?
+      = render partial: 'sections/section', locals: { catalogue: catalogue }, collection: sections
+    - else
+      = render sections
 
-= render partial: 'sections/new_section_form_modal', locals: { catalogue: catalogue, section: Section.new }
+- if defined?(catalogue) && !catalogue.nil?
+  = render partial: 'sections/new_section_form_modal', locals: { catalogue: catalogue, section: Section.new }
+  = render partial: 'sections/edit_section_form_modal', locals: { catalogue: catalogue, section: Section.new }

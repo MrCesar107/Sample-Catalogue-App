@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_01_04_002326) do
 
   create_table "sections", force: :cascade do |t|
     t.string "name", null: false
+    t.string "status", default: "active", null: false
     t.bigint "catalogue_id"
     t.index ["catalogue_id"], name: "index_sections_on_catalogue_id"
   end

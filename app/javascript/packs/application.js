@@ -9,10 +9,11 @@ require("@rails/activestorage").start()
 require("channels")
 require("bootstrap")
 import "@fortawesome/fontawesome-free/js/all";
-import Swal from "sweetalert2";
 
 import editCatalogueModal from "./editCatalogueModal";
 import deleteCatalogueSweetAlert from './deleteCatalogueSweetAlert';
+import editSectionModal from './editSectionModal';
+import deleteSectionSweetAlert from './deleteSectionSweetAlert';
 
 document.addEventListener("turbolinks:load", function() {
   $(function() {
@@ -21,6 +22,8 @@ document.addEventListener("turbolinks:load", function() {
   });
   editCatalogueModal();
   deleteCatalogueSweetAlert();
+  editSectionModal();
+  deleteSectionSweetAlert();
 });
 
 

@@ -1,17 +1,19 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
-class DeleteCatalogueSweetAlert {
+class DeleteSectionSweetAlert {
   constructor() {
-    const deleteButtons = [...document.getElementsByClassName('js--delete-catalogue-button')];
+    const deleteButtons = [...document.getElementsByClassName('js--delete-section-button')];
     deleteButtons.forEach(deleteButton => {
-      deleteButton.addEventListener('click', (event) => {
-        let catalogueId = event.currentTarget.getAttribute('data-id');
-        this.showSweetAlert(catalogueId);
+      deleteButton.addEventListener('click', event => {
+        let sectionId = event.currentTarget.getAttribute('data-id');
+        const catalogueId = event.currentTarget
+                                 .getAttribute('data-catalogue-id')
+        this.showSweetAlert(catalogueId, sectionId);
       });
     });
   }
 
-  showSweetAlert(catalogueId) {
+  showSweetAlert(catalogueId, sectionId) {
     Swal.fire({
       icon: 'warning',
       title: 'Are you sure?',
@@ -21,11 +23,11 @@ class DeleteCatalogueSweetAlert {
       denyButtonText: 'Cancel',
     })
     .then(() => {
-      this.submitDialogueDelete(catalogueId);
+      this.submitDialogueDelete(catalogueId, sectionId);
     });
   }
 
-  submitDialogueDelete(catalogueId) {
+  submitDialogueDelete(catalogueId,sectionId) {
     const form = document.createElement('form');
     const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
     const csrfParam = document.querySelector('meta[name="csrf-param"]').content;
@@ -40,7 +42,7 @@ class DeleteCatalogueSweetAlert {
     methodInput.name = '_method';
 
     form.method = 'post';
-    form.action = `/catalogues/${catalogueId}`;
+    form.action = `/catalogues/${catalogueId}/sections/${sectionId}`;
     form.appendChild(methodInput);
     form.appendChild(csrfTokenInput);
 
@@ -50,8 +52,8 @@ class DeleteCatalogueSweetAlert {
   }
 }
 
-const deleteCatalogueSweetAlert = () => {
-  new DeleteCatalogueSweetAlert();
+const deleteSectionSweetAlert = () => {
+  new DeleteSectionSweetAlert();
 };
 
-export default deleteCatalogueSweetAlert;
+export default deleteSectionSweetAlert;

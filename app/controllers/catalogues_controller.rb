@@ -16,8 +16,6 @@ class CataloguesController < BaseController # :nodoc:
   end
 
   def update
-    catalogue = Catalogue.find(params[:id])
-
     if catalogue.update catalogue_params
       redirect_to catalogues_path, notice: t('.success')
     else
@@ -30,9 +28,7 @@ class CataloguesController < BaseController # :nodoc:
   end
 
   def destroy
-    catalogue = Catalogue.find params[:id]
-
-    if catalogue.update(active: false)
+    if catalogue.update(status: false)
       redirect_to catalogues_path, notice: t('.success')
     else
       render :index, alert: t('.failure')

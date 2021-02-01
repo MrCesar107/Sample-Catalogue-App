@@ -4,3 +4,13 @@
       .row
         .col-8
           %h5.card-title= section.name
+        - if defined?(catalogue) && !catalogue.nil?
+          - if section.active?
+            .col-4.text-right
+              %button.js--edit-section-button.btn.btn-warning.btn-sm{type: 'button', 'data-toggle' => 'modal', 'data-target' => '#editSectionModal', 'data-id' => section.id, 'data-catalogue-id' => catalogue.id}
+                %i.far.fa-edit
+              %button.js--delete-section-button.btn.btn-danger.btn-sm{type: 'button', 'data-id' => section.id, 'data-catalogue-id' => catalogue.id}
+                %i.far.fa-trash-alt
+          - else
+            .col-4.text-right
+              = link_to t(".restore_section"), section_activation_path(section.id), method: :post, class: 'btn btn-primary btn-sm'
