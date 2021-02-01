@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Project gems
 gem 'active_model_serializers', '~> 0.10.12'
+gem 'carrierwave', '~> 2.1.1'
 gem 'bootstrap'
 gem 'devise'
 gem 'haml-rails'

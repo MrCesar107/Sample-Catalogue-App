@@ -8,15 +8,13 @@ Rails.application.routes.draw do
     resource :restore_catalogue, only: %i[update],
                                  controller: 'catalogues/restore_catalogue'
     resources :sections, except: %i[edit show],
-                         controller: 'catalogues/sections' do
-      resources :products, controller: 'catalogues/sections/products'
-    end
+                         controller: 'catalogues/sections'
   end
 
   resources :sections, only: %i[index show] do
     resource :activation, only: %i[create], controller: 'sections/activations'
   end
-  resources :products, only: %i[index show]
+  resources :products
 
   root to: 'dashboard#index'
 end

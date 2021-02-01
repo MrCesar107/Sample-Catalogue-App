@@ -3,7 +3,7 @@
     .modal-content
       .modal-header
         %h5.modal-title#editSectionModalLabel
-          = t(".edit_section")
+          = t(".title")
         %button.btn-close{'data-dismiss' => 'modal', 'aria-label' => 'close'}
           %span{'aria-hidden' => true}
             &times;
@@ -16,5 +16,5 @@
                 = f.text_field :name, class: "form-control js--name-field"
         .modal-footer
           %button.js--submit-button.btn.btn-primary(type="submit")
-            = t(".update")
+            = t(".submit")
 

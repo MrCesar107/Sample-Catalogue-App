@@ -1,7 +1,7 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container
     = link_to root_path, class: "navbar-brand" do
-      Catalogue App
+      = t(".catalogue_app")
     %button.navbar-toggler{ type: "button", data_toggle: "collapse", data_target: "#navbar", aria_controls: "navbar", aria_expanded: "false", aria_label: "Toggle navigation" }
       %span.navbar-toggler-icon
     .collapse.navbar-collapse#navbar
@@ -13,6 +13,7 @@
           = link_to sections_path, class: "nav-link" do
             = t(".sections")
         %li.nav-item
-          %a.nav-link(href="#") Products
+          = link_to products_path, class: "nav-link" do
+            = t(".products")
       = link_to destroy_user_session_path, method: :delete, class: "btn btn-primary" do
-        Log out
+        = t(".logout")

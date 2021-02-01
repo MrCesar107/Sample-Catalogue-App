@@ -2,7 +2,7 @@
   .row
     - if defined?(catalogue) && !catalogue.nil?
       .col-8
-        %h1= t(".catalogue_sections")
+        %h1= t(".catalogue_sections", catalogue: catalogue.name)
       .col-4.text-right
         %button.btn.btn-success{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#newSectionModal' }
           = t(".new_section")

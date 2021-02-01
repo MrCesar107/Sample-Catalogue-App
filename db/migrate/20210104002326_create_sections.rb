@@ -4,6 +4,8 @@ class CreateSections < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.string :status, default: :active, null: false
       t.references :catalogue, index: true, foreign_key: true
+
+      t.timestamps
     end
   end
 end

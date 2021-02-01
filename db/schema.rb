@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_002326) do
+ActiveRecord::Schema.define(version: 2021_02_11_032635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,30 @@ ActiveRecord::Schema.define(version: 2021_01_04_002326) do
     t.boolean "status", default: true, null: false
   end
 
+  create_table "product_sections", id: false, force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "section_id", null: false
+    t.index ["product_id"], name: "index_product_sections_on_product_id"
+    t.index ["section_id"], name: "index_product_sections_on_section_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.string "status", default: "active", null: false
+    t.integer "number_units", null: false
+    t.decimal "price", precision: 2, null: false
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "sections", force: :cascade do |t|
     t.string "name", null: false
     t.string "status", default: "active", null: false
     t.bigint "catalogue_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["catalogue_id"], name: "index_sections_on_catalogue_id"
   end
 

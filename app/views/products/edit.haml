@@ -1,0 +1,7 @@
+.container
+  .row
+    .col-12
+      %h1= t(".edit_product")
+  .row
+    .col-12.js--edit-form
+      = render partial: 'form', locals: { product: product }

@@ -1,0 +1,15 @@
+.card
+  .card-body
+    .row
+      .col-8
+        %h5.card-title
+          = product.name
+      - if product.active?
+        .col-4.text-right
+          = link_to edit_product_path(id: product.id), class: 'btn btn-warning btn-sm edit-button' do
+            %i.far.fa-edit
+
+          %button.js--delete-product-button.btn.btn-danger.btn-sm{type: 'button', 'data-id' => product.id }
+            %i.far.fa-trash-alt
+      - else
+        .col-4.text-right

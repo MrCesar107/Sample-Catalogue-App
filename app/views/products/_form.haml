@@ -1,0 +1,40 @@
+= form_with model: product, method: :post do |f|
+  .row
+    .col-sm-12.col-md-6
+      .form-group
+        = f.label :image
+        .image-upload-preview
+          = image_tag f.object.image_url, class: 'img-thumbnail' if f.object.image?
+          = f.file_field :image, class: "form-control"
+          = f.hidden_field :image_cache
+
+    .col-sm-12.col-md-6
+      .row
+        .col-12
+          .form-group
+            = f.label :name
+            = f.text_field :name, class: 'form-control'
+        .col-12
+          .form-group
+            = f.label :description
+            = f.text_area :description, class: 'form-control'
+        .col-12
+          .form-group
+            = f.label :number_units
+            = f.number_field :number_units, class: 'form-control'
+        .col-12
+          .form-group
+            = f.label :price
+            = f.text_field :price, class: 'form-control'
+        - if !defined?(section_id)
+          .col-12
+            .form-group
+              = label_tag :section_ids
+              = select_tag 'section_ids', options_for_select(::Products.sections_for_select),
+              { class: "js--chosen-select form-control", required: true, include_blank: true, multiple: true }
+        .col-12
+          %button.btn.btn-primary(type="submit")
+            - if product.new_record?
+              = t(".create_product")
+            - else
+              = t(".edit_product")
