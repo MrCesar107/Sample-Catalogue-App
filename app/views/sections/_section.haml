@@ -3,7 +3,8 @@
     .card-body
       .row
         .col-8
-          %h5.card-title= section.name
+          %h5.card-title
+            = link_to section.name, section_products_path(section.id)
         - if defined?(catalogue) && !catalogue.nil?
           - if section.active?
             .col-4.text-right

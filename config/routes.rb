@@ -13,8 +13,13 @@ Rails.application.routes.draw do
 
   resources :sections, only: %i[index show] do
     resource :activation, only: %i[create], controller: 'sections/activations'
+    resources :products, controller: 'products' do
+      resource :activation, only: %i[create], controller: 'products/activation'
+    end
   end
-  resources :products
+  resources :products do
+    resource :activation, only: %i[create], controller: 'products/activations'
+  end
 
   root to: 'dashboard#index'
 end

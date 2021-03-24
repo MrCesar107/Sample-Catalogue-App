@@ -5,4 +5,18 @@
     .col-4.text-right
       = link_to new_product_path, class: "btn btn-success" do
         = t(".new_product")
+  .row
+    .col-12
+      - if defined?(section) && !section.nil?
+        %ul.nav.nav-tabs
+          - tabs.each do |tab|
+            %li.nav-item
+              = link_to section_products_path(status: tab[:status]), class: "nav-link #{tab[:active] && 'active'}" do
+                = t(".#{tab[:status]}")
+      - else
+        %ul.nav.nav-tabs
+          - tabs.each do |tab|
+            %li.nav-item
+              = link_to products_path(status: tab[:status]), class: "nav-link #{tab[:active] && 'active'}" do
+                = t(".#{tab[:status]}")
   = render products

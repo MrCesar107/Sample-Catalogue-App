@@ -53,16 +53,33 @@ en:
     restore_catalogue:
       update:
         success: 'Catalogue was successfully activated'
-        failure: 'An error has occurred while activating the catalogue. Please, try again later'
+        failure: 'An error has occurred while activating the catalogue. Please, try again'
     sections:
       destroy:
         success: 'Section was successfully deactivated'
-        failure: 'An error has occurred while deactivating the section. Please, try again later'
+        failure: 'An error has occurred while deactivating the section. Please, try again'
+  products:
+    activations:
+      create:
+        failure: 'An error has ocurred while activating the product. Please, try again.'
+        success: 'The product has been activated.'
+    create:
+      failure: 'An error has ocurred while creating the product. Please, try again.'
+      success: 'Product was successfully created.'
+    destroy:
+      failure: 'An error has ocurred while deleteing the product. Please, try again.'
+      success: 'Product was deleted successfully'
+    index:
+      active: 'Active'
+      inactive: 'Inactive'
+    update:
+      failure: 'An error has ocurred while updating the product. Please, try again.'
+      success: 'Product was successfully updated.'
   sections:
     activations:
       create:
         success: 'Section was successfully activated'
-        failrure: 'An error has occurred while activating the section. Please, try again later'
+        failrure: 'An error has occurred while activating the section. Please, try again'
     edit_section_form_modal:
       title: 'Edit section'
       submit: 'Edit section'

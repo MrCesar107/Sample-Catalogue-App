@@ -1,4 +1,4 @@
-= form_with model: product, method: :post do |f|
+= form_with model: product do |f|
   .row
     .col-sm-12.col-md-6
       .form-group
@@ -31,7 +31,7 @@
             .form-group
               = label_tag :section_ids
               = select_tag 'section_ids', options_for_select(::Products.sections_for_select),
-              { class: "js--chosen-select form-control", required: true, include_blank: true, multiple: true }
+              { class: "js--section-ids-select js--chosen-select form-control", required: true, include_blank: true, multiple: true }
         .col-12
           %button.btn.btn-primary(type="submit")
             - if product.new_record?

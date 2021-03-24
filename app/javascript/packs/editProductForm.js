@@ -1,7 +1,7 @@
 class ProductForm {
   constructor() {
     this.form = document.querySelector('.js--edit-form form')
-    console.log(this.form);
+    console.log(this.form.querySelector('.js--section-ids-select'));
   }
 }
 

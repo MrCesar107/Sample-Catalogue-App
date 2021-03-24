@@ -16,7 +16,7 @@ class ProductsController < BaseController # :nodoc:
   end
 
   def index
-    render :index, locals: { products: products }
+    render :index, locals: { products: products, tabs: tabs, section: section }
   end
 
   def show; end
@@ -48,7 +48,8 @@ class ProductsController < BaseController # :nodoc:
   private
 
   def active_products
-    @active_products ||= Product.active.ordered
+    @active_products ||= section.present? && section.products.active.ordered ||
+                         Product.active.ordered
   end
 
   def inactive_products
@@ -67,6 +68,10 @@ class ProductsController < BaseController # :nodoc:
 
   def products
     status.eql?('active') && active_products || inactive_products
+  end
+
+  def section
+    @section ||= Section.find_by id: params[:section_id]
   end
 
   def section_ids

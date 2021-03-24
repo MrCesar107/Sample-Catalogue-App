@@ -13,3 +13,4 @@
             %i.far.fa-trash-alt
       - else
         .col-4.text-right
+          = link_to t(".restore_product"), product_activation_path(product.id), method: :post, class: 'btn btn-primary btn-sm'
