@@ -45,6 +45,8 @@ en:
       submit: 'Edit catalogue'
       title: 'Edit catalogue'
     index:
+      active: 'Active'
+      inactive: 'Inactive'
       new_catalogue: 'New catalogue'
       title: 'All catalogues'
     new_catalogue_form_modal:
@@ -66,12 +68,15 @@ en:
     create:
       failure: 'An error has ocurred while creating the product. Please, try again.'
       success: 'Product was successfully created.'
+    form:
+      edit_product: 'Edit product'
     destroy:
       failure: 'An error has ocurred while deleteing the product. Please, try again.'
       success: 'Product was deleted successfully'
     index:
       active: 'Active'
       inactive: 'Inactive'
+      new_product: 'New product'
     update:
       failure: 'An error has ocurred while updating the product. Please, try again.'
       success: 'Product was successfully updated.'
@@ -84,7 +89,10 @@ en:
       title: 'Edit section'
       submit: 'Edit section'
     index:
+      active: 'Active'
+      inactive: 'Inactive'
       catalogue_sections: "%{catalogue} Catalogue sections"
+      new_section: 'New section'
     new_section_form_modal:
       title: 'New section'
       submit: 'Create section'
