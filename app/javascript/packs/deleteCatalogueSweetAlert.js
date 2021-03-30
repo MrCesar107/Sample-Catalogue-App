@@ -20,8 +20,9 @@ class DeleteCatalogueSweetAlert {
       confirmButtonText: 'Delete catalogue',
       denyButtonText: 'Cancel',
     })
-    .then(() => {
-      this.submitDialogueDelete(catalogueId);
+    .then((result) => {
+      if(result.isConfirmed)
+        this.submitDialogueDelete(catalogueId);
     });
   }
 
