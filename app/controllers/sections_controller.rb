@@ -12,8 +12,8 @@ class SectionsController < BaseController # :nodoc:
   private
 
   def active_sections
-    @active_sections ||= !catalogue.nil? && catalogue.sections.active ||
-                         Section.active
+    @active_sections ||= !catalogue.nil? && catalogue.sections.active.ordered ||
+                         Section.active.ordered
   end
 
   def catalogue

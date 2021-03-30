@@ -20,8 +20,9 @@ class DeleteProductSweetAlert {
       confirmButtonText: 'Delete product',
       denyButtonText: 'Cancel',
     })
-    .then(() => {
-      this.submitDialogueDelete(productId);
+    .then((result) => {
+      if(result.isConfirmed)
+        this.submitDialogueDelete(productId);
     });
   }
 

@@ -30,8 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Project gems
 gem 'active_model_serializers', '~> 0.10.12'
-gem 'carrierwave', '~> 2.1.1'
 gem 'bootstrap'
+gem 'carrierwave', '~> 2.1.1'
 gem 'devise'
 gem 'haml-rails'
 
@@ -41,6 +41,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '~> 3.2'
   gem 'rubocop'
