@@ -17,7 +17,6 @@ import deleteCatalogueSweetAlert from './deleteCatalogueSweetAlert';
 import editSectionModal from './editSectionModal';
 import deleteSectionSweetAlert from './deleteSectionSweetAlert';
 import deleteProductSweetAlert from './deleteProductSweetAlert';
-import editProductForm from './editProductForm';
 
 document.addEventListener("turbolinks:load", function() {
   $(function() {
@@ -32,7 +31,6 @@ document.addEventListener("turbolinks:load", function() {
   editSectionModal();
   deleteSectionSweetAlert();
   deleteProductSweetAlert();
-  editProductForm();
 });
 
 
