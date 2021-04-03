@@ -1,7 +1,7 @@
 .container
   .row
     .col-8
-      %h1= t(".all_products")
+      %h1.title= t(".all_products")
     .col-4.text-right
       = link_to new_product_path, class: "btn btn-success" do
         = t(".new_product")

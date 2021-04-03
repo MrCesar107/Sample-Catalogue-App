@@ -2,13 +2,13 @@
   .row
     - if defined?(catalogue) && !catalogue.nil?
       .col-8
-        %h1= t(".catalogue_sections", catalogue: catalogue.name)
+        %h1.title= t(".catalogue_sections", catalogue: catalogue.name)
       .col-4.text-right
         %button.btn.btn-success{ type: 'button', 'data-toggle' => 'modal', 'data-target' => '#newSectionModal' }
           = t(".new_section")
     - else
       .col-12
-        %h1= t(".all_sections")
+        %h1.title= t(".all_sections")
   .row
     .col-12
       - if defined?(catalogue) && !catalogue.nil?
